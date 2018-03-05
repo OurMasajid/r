@@ -15,6 +15,7 @@ setTimeout(() => {
 });
 var monthsData = [];
 var tbodyString = "";
+var months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function createHTML(data){
     var date = new Date();
     date.setDate(date.getDate() + 3);
@@ -22,6 +23,7 @@ function createHTML(data){
     for (let row = 0; row < data.length; row++) {
         if (month == data[row][0]) {/* if current month */
             tbodyString+="<tr>";
+            data[row][1] = months[data[row][0]] + " "+ data[row][1];
             for (let col = 1; col < data[row].length - 1; col++) {
                 tbodyString+="<td>"+data[row][col]+"</td>";
             } 
