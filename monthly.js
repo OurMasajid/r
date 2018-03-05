@@ -1,7 +1,7 @@
 var url = "";
 
 var masjidKey = window.location.href.split("?")[1];
-url = masajidList["masjid-taqwa"]["monthly"];
+url = masajidList[masjidKey]["monthly"];
 
 setTimeout(() => {
     Papa.parse(url, {
