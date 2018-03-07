@@ -1,5 +1,7 @@
 var url = "";
 
+showLoading();
+
 var masjidKey = window.location.href.split("?")[1];
 url = masajidList[masjidKey]["dailyprayer"];
 
@@ -36,4 +38,5 @@ function createHTML(data){
     tbodyString = tbodyString.replace(/a.m./ig, '');
     tbodyString = tbodyString.replace(/p.m./ig, '');
     $("tbody").append(tbodyString);
+    hideLoading();
 }
