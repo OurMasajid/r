@@ -3,7 +3,7 @@ var url = "";
 showLoading();
 
 var masjidKey = window.location.href.split("?")[1];
-url = masajidList[masjidKey]["dailyprayer"];
+url = "https://cors-anywhere.herokuapp.com/"+ masajidList[masjidKey]["dailyprayer"];
 
 setTimeout(() => {
     Papa.parse(url, {
