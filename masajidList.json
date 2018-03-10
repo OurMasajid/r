@@ -1,6 +1,6 @@
 {
     "masjid-taqwa":{
-        "sheet-names":[""],
+        "sheet-names":["Info","Daily Prayer", "Jumma", "Pages", "Calendar", "Events"],
         "calendar-id":"fbn75c060jl91k450r1absu36s@group.calendar.google.com",
         "dailyprayer":"https://docs.google.com/spreadsheets/d/e/2PACX-1vTtTotyMaOJLmoLQCgHv1bIueVlXdUNS8iBJBXeI4zLWe8Txw5egQTQeYSYiwiB5fRJ2l6niJphlqrz/pub?gid=0&single=true&output=csv",
         "jumma":"https://docs.google.com/spreadsheets/d/e/2PACX-1vTtTotyMaOJLmoLQCgHv1bIueVlXdUNS8iBJBXeI4zLWe8Txw5egQTQeYSYiwiB5fRJ2l6niJphlqrz/pub?gid=160505375&single=true&output=csv",
