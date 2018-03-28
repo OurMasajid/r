@@ -16,7 +16,6 @@ tobedeleted["dataurl"] = "http://ourmasajid.github.io/d/"+tobedeleted.masjidKey;
 tobedeleted["sheetid"] = masajidList[tobedeleted.masjidKey];
 tobedeleted["data"]= "";
     
-};
 
 /*program start here*/
 showLoading();
