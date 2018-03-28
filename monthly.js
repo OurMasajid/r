@@ -10,10 +10,11 @@ function loader(vartosaveto, url, callback) {
     xhttp.send();
   }
 var tobedeleted = {
-    "masjidKey" : window.location.href.split("?")[1],
-    "dataurl" : "http://ourmasajid.github.io/d/"+tobedeleted.masjidKey,
-    "sheetid" : masajidList[tobedeleted.masjidKey],
-    "data": ""
+    "masjidKey" : window.location.href.split("?")[1]
+};
+tobedeleted["dataurl"] = "http://ourmasajid.github.io/d/"+tobedeleted.masjidKey;
+tobedeleted["sheetid"] = masajidList[tobedeleted.masjidKey];
+tobedeleted["data"]= "";
     
 };
 
@@ -21,14 +22,7 @@ var tobedeleted = {
 showLoading();
 loader("tobedeleted.data", tobedeleted.dataurl, "createHTML()");
 
-// setTimeout(() => {
-//     Papa.parse(url, {
-//         download: true,
-//         complete: function(results) {
-//         createHTML(results.data);
-//     }
-// }, 0);
-//});
+
 var monthsData = [];
 var tbodyString = "";
 var months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
