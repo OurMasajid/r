@@ -30,7 +30,7 @@ function createHTML(){
     var aData = [];
     for (let i = 0; i < data.length; i++) {
         aData.push([]);
-        for(var key in data[i].keys()){
+        for(var key in Object.keys(data[i])){
             aData[i].push(data[i][key])	;
         }
     }
