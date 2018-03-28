@@ -1,4 +1,4 @@
-var masjidList = {
+var masajidList = {
     "masjid-taqwa":{
         "sheetid":"1t8JCi7KXMN_HXgkDkSPJyJCWxy8QwY3pOqvurcnAg5w",
         "sheetnames":["Daily Prayer"],
