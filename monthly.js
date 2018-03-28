@@ -11,8 +11,8 @@ function loader(vartosaveto, url, callback) {
   }
 var tobedeleted = {
     "masjidKey" : window.location.href.split("?")[1],
-    "dataurl" : "http://ourmasajid.github.io/d/"+masjidKey,
-    "sheetid" : masajidList[masjidKey],
+    "dataurl" : "http://ourmasajid.github.io/d/"+tobedeleted.masjidKey,
+    "sheetid" : masajidList[tobedeleted.masjidKey],
     "data": ""
     
 };
