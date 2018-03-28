@@ -35,25 +35,27 @@ function createHTML(){
             aData[i].push(data[i][keys[key]]);
         }
     }
-    console.log(aData);
-    // var date = new Date();
-    // date.setDate(date.getDate() + 3);
-    // var month = date.getMonth() + 1;
-    // for (let row = 0; row < data.length; row++) {
-    //     if (month == data[row][0]) {/* if current month */
-    //         tbodyString+="<tr>";
-    //         data[row][1] = months[data[row][0]] + " "+ data[row][1];
-    //         for (let col = 1; col < data[row].length - 1; col++) {
-    //             tbodyString+="<td>"+data[row][col]+"</td>";
-    //         } 
-    //         tbodyString+="</tr>";
-    //     }
+    data = aData;
+    var date = new Date();
+    date.setDate(date.getDate() + 3);
+    var month = date.getMonth() + 1;
+    for (let row = 0; row < data.length; row++) {
+        if (month == data[row][0]) {/* if current month */
+            tbodyString+="<tr>";
+            data[row][1] = months[data[row][0]] + " "+ data[row][1];
+            for (let col = 1; col < data[row].length - 1; col++) {
+                tbodyString+="<td>"+data[row][col]+"</td>";
+            } 
+            tbodyString+="</tr>";
+        }
               
-    // }
-    // tbodyString = tbodyString.replace(/am/ig, '');
-    // tbodyString = tbodyString.replace(/pm/ig, '');
-    // tbodyString = tbodyString.replace(/a.m./ig, '');
-    // tbodyString = tbodyString.replace(/p.m./ig, '');
-    // $("tbody").append(tbodyString);
+    }
+    tbodyString = tbodyString.replace(/am/ig, '');
+    tbodyString = tbodyString.replace(/pm/ig, '');
+    tbodyString = tbodyString.replace(/a.m./ig, '');
+    tbodyString = tbodyString.replace(/p.m./ig, '');
+    masjidname.innerHTML = masajidList[tobedeleted.masjidKey]["title"];
+    masjidaddress.innerHTML = masajidList[tobedeleted.masjidKey]["location"];
+    $("tbody").append(tbodyString);
     hideLoading();
 }

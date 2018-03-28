@@ -1,5 +1,7 @@
 var masajidList = {
     "masjid-taqwa":{
+        "title":"Masjid At-Taqwa",
+        "location":"1608 Como Ave, Saint Paul, MN",
         "sheetid":"1t8JCi7KXMN_HXgkDkSPJyJCWxy8QwY3pOqvurcnAg5w",
         "sheetnames":["Daily Prayer"],
         "calendarid":"fbn75c060jl91k450r1absu36s@group.calendar.google.com",
