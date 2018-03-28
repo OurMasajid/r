@@ -1,7 +1,7 @@
-{
+var masjidList = {
     "masjid-taqwa":{
-        "spreadsheetid":"1t8JCi7KXMN_HXgkDkSPJyJCWxy8QwY3pOqvurcnAg5w",
-        "sheetnames":["Info","Daily Prayer", "Jumma", "Pages", "Calendar", "Events"],
+        "sheetid":"1t8JCi7KXMN_HXgkDkSPJyJCWxy8QwY3pOqvurcnAg5w",
+        "sheetnames":["Daily Prayer"],
         "calendarid":"fbn75c060jl91k450r1absu36s@group.calendar.google.com",
         "calendardays":30,
         "dailyprayer":"https://docs.google.com/spreadsheets/d/e/2PACX-1vTtTotyMaOJLmoLQCgHv1bIueVlXdUNS8iBJBXeI4zLWe8Txw5egQTQeYSYiwiB5fRJ2l6niJphlqrz/pub?gid=0&single=true&output=csv",
