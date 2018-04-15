@@ -16,7 +16,7 @@ var tobedeleted = {
 tobedeleted["dataurl"] = "https://ourmasajid.github.io/d/icrr-cal.json";
 tobedeleted["data"]= "";
 tobedeleted["dayHTML"]= "<div class='py-3'><div class='container'><div class='card'><div class='card-header lead'> {date}</div><div class='card-body'> {events}</div></div></div></div>";
-tobedeleted["eventHTML"]= "<div class='row'><div class='col-3' style='padding-right:0'><div class=''><div class='eventtime' style='font-size: 26px;'>{time}</div><div style='margin-top: -10px'>{ampm}</div> <span class='eventtime' style='font-size: 26px; color: gray;'>{duration}</span></div></div><div class='col-9' style='padding-left:5px'><h5 class='card-title mb-0'>{title}</h5><p class='mt-0' style='font-size: 14px; color:gray;'>{location}</p><p class='card-text'> {description}</p></div></div>";
+tobedeleted["eventHTML"]= "<div class='row'><div class='col-3 timecol' style='padding-right:0'><div><div class='eventtime' style='font-size: 26px;'>{time}</div><div style='margin-top: -10px'>{ampm}</div> <span class='eventduration' style='font-size: 20px; color: gray;'>{duration}</span></div></div><div class='col-9' style='padding-left:5px'><h5 class='card-title mb-0'>{title}</h5><p class='mt-0' style='font-size: 14px; color:gray;'>{location}</p><p class='card-text'> {description}</p></div></div>";
 
 /*program start here*/
 showLoading();
