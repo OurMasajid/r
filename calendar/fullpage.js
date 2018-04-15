@@ -68,17 +68,31 @@ function getStarttime(dateString){
 function getAmpm(dateString){
  let result = new Date(dateString).toString().substring(16,18);
  if (result>12) {
-  return "p.m.";
+  return "pm";
  }
- return "a.m.";
+ return "am";
 }
 function getDuration(startString, endString){
  let dates = new Date(startString);
  let datee = new Date(endString);
- let diffmili = datee-dates;
- let minutesT = diffmili/60000;
- if (minutesT<60) {
-  return minutesT+"m"
+ let diff = datee-dates;
+ let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+ diff -=  days * (1000 * 60 * 60 * 24);
+ 
+ let hours = Math.floor(diff / (1000 * 60 * 60));
+ diff -= hours * (1000 * 60 * 60);
+ 
+ let mins = Math.floor(diff / (1000 * 60));
+ diff -= mins * (1000 * 60);
+ let result = "";
+ if (days>0){
+  result+=day+"d ";
  }
- return "todo";
+ if (hours>0){
+  result+=hours+"h ";
+ }
+ if (mins>0){
+  result+=mins+"m ";
+ }
+ return result;
 }
