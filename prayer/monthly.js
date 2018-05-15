@@ -13,7 +13,7 @@ var tobedeleted = {
     "masjidKey" : window.location.href.split("?")[1]
 };
 tobedeleted["dataurl"] = "https://ourmasajid.github.io/d/"+tobedeleted.masjidKey+".json?cache="+new Date().getTime();
-tobedeleted["sheetid"] = masajidList[tobedeleted.masjidKey];
+//tobedeleted["sheetid"] = masajidList[tobedeleted.masjidKey];
 tobedeleted["data"]= "";
     
 
@@ -54,8 +54,9 @@ function createHTML(){
     tbodyString = tbodyString.replace(/pm/ig, '');
     tbodyString = tbodyString.replace(/a.m./ig, '');
     tbodyString = tbodyString.replace(/p.m./ig, '');
-    masjidname.innerHTML = masajidList[tobedeleted.masjidKey]["title"];
-    masjidaddress.innerHTML = masajidList[tobedeleted.masjidKey]["location"];
+    const info = tobedeleted["data"]["Info"]["data"][0];
+    masjidname.innerHTML = info["name"];
+    masjidaddress.innerHTML = info["address"]+" "+info["city"]+", "+info["state"]+" "+info["zip"];
     $("tbody").append(tbodyString);
     hideLoading();
 }
