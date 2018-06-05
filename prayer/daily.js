@@ -13,7 +13,6 @@ var tobedeleted = {
  "masjidKey" : window.location.href.split("?")[1]
 };
 tobedeleted["dataurl"] = "https://ourmasajid.github.io/d/"+tobedeleted.masjidKey+".json?cache="+new Date().getTime();
-tobedeleted["sheetid"] = masajidList[tobedeleted.masjidKey];
 tobedeleted["data"]= "";
  
 
