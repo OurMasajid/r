@@ -12,7 +12,7 @@ function loader(vartosaveto, url, callback) {
 var tobedeleted = {
  "masjidKey" : window.location.href.split("?")[1]
 };
-tobedeleted["dataurl"] = "https://ourmasajid.github.io/d/"+tobedeleted.masjidKey+".json";
+tobedeleted["dataurl"] = "https://ourmasajid.github.io/masjid-"+tobedeleted.masjidKey+"/data.json";
 tobedeleted["data"]= "";
  
 
