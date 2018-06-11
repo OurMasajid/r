@@ -12,7 +12,7 @@ function loader(vartosaveto, url, callback) {
 var tobedeleted = {
  "masjidKey" : window.location.href.split("?")[1]
 };
-tobedeleted["dataurl"] = "https://ourmasajid.github.io/d/"+tobedeleted.masjidKey+".json?cache="+new Date().getTime();
+tobedeleted["dataurl"] = "https://ourmasajid.github.io/masjid-"+tobedeleted.masjidKey+"/data.json?cache="+new Date().getTime();
 tobedeleted["data"]= "";
 tobedeleted["dayHTML"]= "<div class='py-3'><div class='container'><div class='card'><div class='card-header lead'> {date}</div><div class='card-body'> {events}</div></div></div></div>";
 tobedeleted["eventHTML"]= "<div class='row'><div class='col-3 timecol' style='padding-right:0'><div><div class='eventtime'>{time}</div><div style='margin-top: -10px'>{ampm}</div> <span class='eventduration'>{duration}</span></div></div><div class='col-9' style='padding-left:5px'><h5 class='card-title mb-0'>{title}</h5><p class='mt-0' style='font-size: 14px; color:gray;'>{location}</p><p class='card-text'> {description}</p></div></div>";
