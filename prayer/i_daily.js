@@ -10,7 +10,7 @@ function loader(vartosaveto, url, callback) {
  xhttp.send();
 }
 var tobedeleted = {
- "dataurl" = dataurl;
+ "dataurl" : dataurl;
 };
 tobedeleted["data"]= "";
  
