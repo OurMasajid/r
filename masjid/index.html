@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Masjid</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Montserrat" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">ICRR</a>
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link btn btn-outline-secondary" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-secondary" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-secondary" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-secondary" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="bg-light text-center py-5">
+    <img class="logo" src="https://ourmasajid.github.io/masjid-1qBN97_jl61meT05BcR_K14kP63MOMSVJjZnhMoPipEs/ICRR-Logo.svg">
+  </div>
+  <div class="bg-info text-center py-5 text-white">
+    <h2 class="display-2">Daily Prayer</h2>
+    <hr class="star-light">
+    <div class="container">
+        <!-- table-hover -->
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th id="date" class="lead" colspan="3">Loading...</th>
+          </tr>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Athan</th>
+            <th scope="col">Iqama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Fajr</th>
+            <td id="fajr">0:00</td>
+            <td id="fajri">0:00</td>
+          </tr>
+          <tr>
+            <th scope="row">Sunset</th>
+            <td id="sunrise" colspan="2" class="">0:00</td>
+          </tr>
+          <tr>
+            <th scope="row">Duhr</th>
+            <td id="zuhr">0:00</td>
+            <td id="zuhri">0:00</td>
+          </tr>
+          <tr>
+            <th scope="row">Asr</th>
+            <td id="asr">0:00</td>
+            <td id="asri">0:00</td>
+          </tr>
+          <tr>
+            <th scope="row">Maghrib</th>
+            <td id="maghrib">0:00</td>
+            <td id="maghribi">0:00</td>
+          </tr>
+          <tr>
+            <th scope="row">Isha</th>
+            <td id="esha">0:00</td>
+            <td id="eshai">0:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .display-1 {
+      font-size: 4rem;
+      font-weight: 900;
+    }
+
+    .display-2 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .display-3 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .navbar-brand {
+      /* font-family: 'Montserrat', sans-serif; */
+      font-size: 45px;
+      font-weight: 1000;
+    }
+
+    .navbar-nav .btn {
+      /* font-family: 'Montserrat', sans-serif; */
+      font-size: 22px;
+      font-weight: 1000;
+      border: none;
+    }
+
+    @media (min-width: 1200px) {
+      .navbar-nav .btn {
+        margin-left: 10px;
+      }
+    }
+
+    .logo {
+      height: 400px;
+    }
+
+    @media (max-width: 800px) {
+      .logo {
+        height: 250px;
+      }
+    }
+
+    hr.star-light {
+      max-width: 15rem;
+      padding: 0;
+      text-align: center;
+      border: none;
+      border-top: solid .25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table{
+      border: solid 2px;
+      border-radius: 10px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
