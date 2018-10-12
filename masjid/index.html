@@ -11,7 +11,74 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Montserrat" rel="stylesheet">
-
+  <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+  
+      .display-1 {
+        font-size: 4rem;
+        font-weight: 900;
+      }
+  
+      .display-2 {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+  
+      .display-3 {
+        font-size: 2rem;
+        font-weight: 500;
+      }
+  
+      .navbar-brand {
+        /* font-family: 'Montserrat', sans-serif; */
+        font-size: 45px;
+        font-weight: 1000;
+      }
+  
+      .navbar-nav .btn {
+        /* font-family: 'Montserrat', sans-serif; */
+        font-size: 22px;
+        font-weight: 1000;
+        border: none;
+      }
+  
+      @media (min-width: 1200px) {
+        .navbar-nav .btn {
+          margin-left: 10px;
+        }
+      }
+  
+      .logo {
+        height: 400px;
+      }
+  
+      @media (max-width: 800px) {
+        .logo {
+          height: 250px;
+        }
+      }
+  
+      hr.star-light {
+        max-width: 15rem;
+        padding: 0;
+        text-align: center;
+        border: none;
+        border-top: solid .25rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      table{
+        border: solid 2px;
+        border-radius: 10px;
+      }
+      .container-small{
+        max-width: 600px;
+      }
+    </style>
 </head>
 
 <body>
@@ -48,7 +115,7 @@
   <div class="bg-info text-center py-5 text-white">
     <h2 class="display-2">Daily Prayer</h2>
     <hr class="star-light">
-    <div class="container">
+    <div class="container container-small">
         <!-- table-hover -->
     <table class="table table-striped">
         <thead>
@@ -100,71 +167,7 @@
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .display-1 {
-      font-size: 4rem;
-      font-weight: 900;
-    }
-
-    .display-2 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
-    .display-3 {
-      font-size: 2rem;
-      font-weight: 500;
-    }
-
-    .navbar-brand {
-      /* font-family: 'Montserrat', sans-serif; */
-      font-size: 45px;
-      font-weight: 1000;
-    }
-
-    .navbar-nav .btn {
-      /* font-family: 'Montserrat', sans-serif; */
-      font-size: 22px;
-      font-weight: 1000;
-      border: none;
-    }
-
-    @media (min-width: 1200px) {
-      .navbar-nav .btn {
-        margin-left: 10px;
-      }
-    }
-
-    .logo {
-      height: 400px;
-    }
-
-    @media (max-width: 800px) {
-      .logo {
-        height: 250px;
-      }
-    }
-
-    hr.star-light {
-      max-width: 15rem;
-      padding: 0;
-      text-align: center;
-      border: none;
-      border-top: solid .25rem;
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    table{
-      border: solid 2px;
-      border-radius: 10px;
-    }
-  </style>
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
