@@ -133,10 +133,10 @@
               <a class="nav-link btn btn-outline-secondary" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-outline-secondary" href="#">Link</a>
+              <a class="nav-link btn btn-outline-secondary" href="#">Donation</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-outline-secondary" href="#">Link</a>
+              <a class="nav-link btn btn-outline-secondary" href="#">Downloads</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-outline-secondary" href="#">Contact</a>
@@ -154,6 +154,7 @@
     <hr class="star-light">
     <div class="container container-small">
       <h3 class="display-4">More information</h3>
+      <!-- <img src="https://docs.google.com/file/d/0BxKJ3O8_kU9fY28wY25JZ0xwTnJZR2lTZjRKT1dWOFdQYkxv/export/file?id=0BxKJ3O8_kU9fY28wY25JZ0xwTnJZR2lTZjRKT1dWOFdQYkxv&pageid=p"> -->
     </div>
   </div>
   <div class="bg-light py-5">
@@ -330,6 +331,17 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    import json from './data.json'
+    export default {
+      data() {
+        return {
+          myJson: json
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
