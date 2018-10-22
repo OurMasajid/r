@@ -70,7 +70,6 @@ var OM = {
     setTimeout(this.httpLoader("OM.feedDataToComponents()"));
   }
 };
-
 var DailyPrayer = {
   dateUI: $(".daily-prayer").find(".date"),
 
