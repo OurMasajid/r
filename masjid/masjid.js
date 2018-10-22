@@ -166,7 +166,7 @@ var JummaPrayer = {
   setJummaData: function() {
     if (this.jummaData.length > 1) {
       console.log("ha");
-      //todo gethtml append in parent then in loop set the values
+      
     }
   }
 };
