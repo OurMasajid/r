@@ -157,16 +157,18 @@ var JummaPrayer = {
       );
       return false;
     }
-    if (!OM.data["Jumma"]["data"]) {
+    if (!this.jummaData) {
       console.log("missing data variable, where is the masjid data?");
       return false;
     }
     this.setJummaData();
   },
   setJummaData: function() {
-    if (this.jummaData.length > 1) {
-      console.log("ha");
-      
+    var uiHtml = this.ui.html();
+    this.ui.html("");
+    for (let i = 0; i < this.jummaData.length; i++) {
+      this.ui.append(uiHtml);
+      //now started showing correct number of jumma tables, TODO fill data
     }
   }
 };
