@@ -1,7 +1,7 @@
 var OM = {
   url: "",
   defaultUrl: "./data.js",
-  data:"",
+  data: "",
   today: new Date(),
   todayDay: new Date().getDate(),
   todayMonth: new Date().getMonth() + 1,
@@ -31,7 +31,10 @@ var OM = {
   ],
   feedDataToComponents: function() {
     if ($(".daily-prayer")) {
-      DailyPrayer.start();
+      setTimeout(DailyPrayer.start());
+    }
+    if ($(".jumma-prayer")) {
+      setTimeout(JummaPrayer.start());
     }
   },
   httpLoader: function(callback) {
@@ -64,7 +67,7 @@ var OM = {
     return result;
   },
   start: function() {
-    this.httpLoader("OM.feedDataToComponents()");
+    setTimeout(this.httpLoader("OM.feedDataToComponents()"));
   }
 };
 
@@ -81,7 +84,7 @@ var DailyPrayer = {
 
   asrUI: $(".daily-prayer").find(".asr"),
   asriUI: $(".daily-prayer").find(".asri"),
-  
+
   maghribUI: $(".daily-prayer").find(".maghrib"),
   maghribiUI: $(".daily-prayer").find(".maghribi"),
 
@@ -95,32 +98,32 @@ var DailyPrayer = {
       );
       return false;
     }
-    this.getTodaysData();
+    if (!OM.data["Daily Prayer"]["data"]) {
+      console.log("missing data, where is the Daily Prayer data?");
+      return false;
+    }
+    setTimeout(this.getTodaysData());
   },
-  createDateFromDayMonth: function(day, month){
+  createDateFromDayMonth: function(day, month) {
     day = day.toString();
     month = month - 1;
     month = month.toString();
-    if(day.length == 1){
+    if (day.length == 1) {
       day = 0 + day;
     }
-    if(month.length == 1){
+    if (month.length == 1) {
       month = 0 + month;
     }
-    let date = new Date(new Date().getFullYear(),month,day);
+    let date = new Date(new Date().getFullYear(), month, day);
     return OM.getFormatedDate(date);
   },
-  getTodaysData: function(){
-    if(!OM.data){
-      console.log("missing data variable, where is the masjid data?");
-      return false;
-    }
+  getTodaysData: function() {
     for (let i = 0; i < OM.data["Daily Prayer"]["data"].length; i++) {
       const day = OM.data["Daily Prayer"]["data"][i];
-      if(day["Month"]==OM.todayMonth && day["Date"]==OM.todayDay){
-        // console.log((day["Month"]+"/"+day["Date"]+"/"+new Date().getFullYear()).toString());
-        // console.log(new Date((new Date().getFullYear()+"-0"+day["Month"]+"-"+day["Date"]).toString()));
-        this.dateUI.html(this.createDateFromDayMonth(day["Date"],day["Month"]));
+      if (day["Month"] == OM.todayMonth && day["Date"] == OM.todayDay) {
+        this.dateUI.html(
+          this.createDateFromDayMonth(day["Date"], day["Month"])
+        );
 
         this.fajrUI.html(day["Fajr"]);
         this.fajriUI.html(day["fIqama"]);
@@ -141,6 +144,30 @@ var DailyPrayer = {
         return;
       }
     }
-  },
+  }
 };
 
+var JummaPrayer = {
+  jummaData: "",
+  ui: $(".jumma-prayer"),
+  start: function() {
+    this.jummaData = OM.data["Jumma"]["data"];
+    if (!this.ui) {
+      console.log(
+        "jumma prayer ui does not exsist. make sure jumma-prayer class is added to jumma table/div"
+      );
+      return false;
+    }
+    if (!OM.data["Jumma"]["data"]) {
+      console.log("missing data variable, where is the masjid data?");
+      return false;
+    }
+    this.setJummaData();
+  },
+  setJummaData: function() {
+    if (this.jummaData.length > 1) {
+      console.log("ha");
+      //todo gethtml append in parent then in loop set the values
+    }
+  }
+};
