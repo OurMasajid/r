@@ -45,7 +45,7 @@ var OM = {
         eval(callback);
       }
     };
-    let url = "";
+    var url = "";
     if (this.url) {
       url = this.url;
     } else {
@@ -57,9 +57,9 @@ var OM = {
   getNext7DaysPrayerTime: function() {},
 
   getFormatedDate: function(date) {
-    let result = OM.dayNames[date.getDay()] + ", ";
+    var result = OM.dayNames[date.getDay()] + ", ";
     result += OM.monthNames[date.getMonth()] + " ";
-    let dateNumber = date.getDate();
+    var dateNumber = date.getDate();
     if (dateNumber.toString().length == 1) {
       dateNumber = "0" + dateNumber;
     }
@@ -91,7 +91,7 @@ var DailyPrayer = {
   eshaUI: $(".daily-prayer").find(".esha"),
   eshaiUI: $(".daily-prayer").find(".eshai"),
   start: function() {
-    let ui = $(".daily-prayer");
+    var ui = $(".daily-prayer");
     if (!ui) {
       console.log(
         "daily prayer ui does not exsist. make sure daily-prayer class is added to the parent div"
@@ -114,12 +114,12 @@ var DailyPrayer = {
     if (month.length == 1) {
       month = 0 + month;
     }
-    let date = new Date(new Date().getFullYear(), month, day);
+    var date = new Date(new Date().getFullYear(), month, day);
     return OM.getFormatedDate(date);
   },
   getTodaysData: function() {
-    for (let i = 0; i < OM.data["Daily Prayer"]["data"].length; i++) {
-      const day = OM.data["Daily Prayer"]["data"][i];
+    for (var i = 0; i < OM.data["Daily Prayer"]["data"].length; i++) {
+      var day = OM.data["Daily Prayer"]["data"][i];
       if (day["Month"] == OM.todayMonth && day["Date"] == OM.todayDay) {
         this.dateUI.html(
           this.createDateFromDayMonth(day["Date"], day["Month"])
