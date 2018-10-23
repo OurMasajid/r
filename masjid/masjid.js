@@ -148,7 +148,7 @@ var DailyPrayer = {
 
 var JummaPrayer = {
   jummaData: "",
-  ui: $(".jumma-prayer"),
+  ui: $(".jumma-prayer").parent(),
   start: function() {
     this.jummaData = OM.data["Jumma"]["data"];
     if (!this.ui) {
@@ -161,14 +161,26 @@ var JummaPrayer = {
       console.log("missing data variable, where is the masjid data?");
       return false;
     }
-    this.setJummaData();
+    setTimeout(this.setJummaData());
   },
   setJummaData: function() {
-    var uiHtml = this.ui.html();
+    var uiHtml = this.ui.clone();
     this.ui.html("");
-    for (let i = 0; i < this.jummaData.length; i++) {
-      this.ui.append(uiHtml);
-      //now started showing correct number of jumma tables, TODO fill data
+    var jummaNumber = ["First", "Second", "Third", "Forth"];
+    for (i = 0; i < this.jummaData.length; i++) {
+      if (this.jummaData.length>1) {
+        uiHtml.find(".jumma-number").html(jummaNumber[i]);
+      }
+      uiHtml.find(".khutba").html(this.jummaData[i]["Khutba"]);
+      uiHtml.find(".khateeb").html(this.jummaData[i]["Khateeb"]);
+      uiHtml.find(".language").html(this.jummaData[i]["Language"]);
+      uiHtml.find(".iqama").html(this.jummaData[i]["Iqama"]);
+
+      if(!this.jummaData[i]["Khutba"]){uiHtml.find(".khutba-row").remove();}
+      if(!this.jummaData[i]["Khateeb"]){uiHtml.find(".khateeb-row").remove();}
+      if(!this.jummaData[i]["Language"]){uiHtml.find(".language-row").remove();}
+      if(!this.jummaData[i]["Iqama"]){uiHtml.find(".iqama-row").remove();}
+      this.ui.append(uiHtml.html());
     }
   }
 };
