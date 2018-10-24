@@ -110,7 +110,10 @@
         }
 
       }
-
+      .event-time{
+        width:100px;
+        font-weight:700;
+      }
       .cursor-pointer{
         cursor: pointer;
       }
@@ -154,37 +157,36 @@
     <hr class="star-light">
     <div class="container container-small">
       <h3 class="display-4">More information</h3>
-      <!-- <img src="https://docs.google.com/file/d/0BxKJ3O8_kU9fY28wY25JZ0xwTnJZR2lTZjRKT1dWOFdQYkxv/export/file?id=0BxKJ3O8_kU9fY28wY25JZ0xwTnJZR2lTZjRKT1dWOFdQYkxv&pageid=p"> -->
     </div>
   </div>
   <div class="bg-light py-5">
     <h2 class="display-2 text-center">Events</h2>
     <hr class="star-light">
-    <div class="container container-medium text-small">
+    <div class="container container-medium text-small m-calendar">
       <div class="card calendar-day">
-        <div class="card-header lead"> Wednesday October 17</div>
+        <div class="card-header lead date">Loading...</div>
         <div class="card-body">
-          <div class="d-flex cursor-pointer">
-            <div style="width:100px;font-weight:700;">8:30 pm</div>
-            <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
+          <div class="d-flex cursor-pointer event">
+            <div class="event-time"></div>
+            <div class="event-title"></div>
           </div>
         </div>
       </div>
-      <div class="card calendar-day">
+      <!-- <div class="card calendar-day">
         <div class="card-header lead"> Wednesday October 17</div>
         <div class="card-body">
           <div class="d-flex cursor-pointer">
-            <div style="width:100px;font-weight:700;">8:30 pm</div>
+            <div class="event-time">8:30 pm</div>
             <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
           </div>
           <hr>
           <div class="d-flex cursor-pointer">
-            <div style="width:100px;font-weight:700;">8:30 pm</div>
+            <div class="event-time">8:30 pm</div>
             <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
           </div>
           <hr>
           <div class="d-flex cursor-pointer">
-            <div style="width:100px;font-weight:700;">8:30 pm</div>
+            <div class="event-time">8:30 pm</div>
             <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
           </div>
         </div>
@@ -192,12 +194,12 @@
       <div class="card calendar-day">
         <div class="card-header lead"> Wednesday October 17</div>
         <div class="card-body">
-          <div class="d-flex cursor-pointer" onclick="alert()">
-            <div style="width:100px;font-weight:700;">8:30 pm</div>
+          <div class="d-flex cursor-pointer">
+            <div class="event-time">8:30 pm</div>
             <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="bg-info text-center py-5 text-white">
@@ -223,27 +225,27 @@
           </tr>
           <tr>
             <th scope="row">Sunset</th>
-            <td class="sunrise" colspan="2" ></td>
+            <td class="sunrise" colspan="2"></td>
           </tr>
           <tr>
             <th scope="row">Duhr</th>
-            <td class="zuhr">{{ zuhr }}</td>
-            <td class="zuhri">{{ zuhri }}</td>
+            <td class="zuhr"></td>
+            <td class="zuhri"></td>
           </tr>
           <tr>
             <th scope="row">Asr</th>
-            <td class="asr">{{ asr }}</td>
-            <td class="asri">{{ asri }}</td>
+            <td class="asr"></td>
+            <td class="asri"></td>
           </tr>
           <tr>
             <th scope="row">Maghrib</th>
-            <td class="maghrib">{{ maghrib }}</td>
-            <td class="maghribi">{{ maghribi }}</td>
+            <td class="maghrib"></td>
+            <td class="maghribi"></td>
           </tr>
           <tr>
             <th scope="row">Isha</th>
-            <td class="esha">{{ esha }}</td>
-            <td class="eshai">{{ eshai }}</td>
+            <td class="esha"></td>
+            <td class="eshai"></td>
           </tr>
         </tbody>
       </table>

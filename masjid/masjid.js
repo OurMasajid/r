@@ -30,6 +30,9 @@ var OM = {
     "Saturday"
   ],
   feedDataToComponents: function() {
+    if ($(".m-calendar")) {
+      setTimeout(MCalendar.start());
+    }
     if ($(".daily-prayer")) {
       setTimeout(DailyPrayer.start());
     }
@@ -168,7 +171,7 @@ var JummaPrayer = {
     this.ui.html("");
     var jummaNumber = ["First", "Second", "Third", "Forth"];
     for (i = 0; i < this.jummaData.length; i++) {
-      if (this.jummaData.length>1) {
+      if (this.jummaData.length > 1) {
         uiHtml.find(".jumma-number").html(jummaNumber[i]);
       }
       uiHtml.find(".khutba").html(this.jummaData[i]["Khutba"]);
@@ -176,11 +179,35 @@ var JummaPrayer = {
       uiHtml.find(".language").html(this.jummaData[i]["Language"]);
       uiHtml.find(".iqama").html(this.jummaData[i]["Iqama"]);
 
-      if(!this.jummaData[i]["Khutba"]){uiHtml.find(".khutba-row").remove();}
-      if(!this.jummaData[i]["Khateeb"]){uiHtml.find(".khateeb-row").remove();}
-      if(!this.jummaData[i]["Language"]){uiHtml.find(".language-row").remove();}
-      if(!this.jummaData[i]["Iqama"]){uiHtml.find(".iqama-row").remove();}
+      if (!this.jummaData[i]["Khutba"]) {
+        uiHtml.find(".khutba-row").remove();
+      }
+      if (!this.jummaData[i]["Khateeb"]) {
+        uiHtml.find(".khateeb-row").remove();
+      }
+      if (!this.jummaData[i]["Language"]) {
+        uiHtml.find(".language-row").remove();
+      }
+      if (!this.jummaData[i]["Iqama"]) {
+        uiHtml.find(".iqama-row").remove();
+      }
       this.ui.append(uiHtml.html());
+    }
+  }
+};
+var MCalendar = {
+  data:"",
+  uiParent: $(".m-calendar"),
+  uiDay: this.uiParent.find("calendar-day"),
+  uiEvent: this.uiDay.find("event"),
+  start: function(){
+    this.data = OM.data["Calendar"]["Event Data"];
+    setTimeout(this.setData());
+  },
+  setData: function () {
+    for (let i = 0; i < this.data.length; i++) {
+      const obj = this.data[i];
+      
     }
   }
 };
