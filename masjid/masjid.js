@@ -69,6 +69,19 @@ var OM = {
     result += dateNumber;
     return result;
   },
+  getFormatedTime: function(datetime) {
+    var hours = datetime.getHours();
+    var mins = datetime.getMinutes();
+    var ampm = "am";
+    if (hours > 12) {
+      hours = hours - 12;
+      ampm = "pm";
+    }
+    if (mins.toString().length === 1) {
+      mins = "0" + mins;
+    }
+    return hours + ":" + mins +ampm;
+  },
   start: function() {
     setTimeout(this.httpLoader("OM.feedDataToComponents()"));
   }
@@ -196,17 +209,49 @@ var JummaPrayer = {
   }
 };
 var MCalendar = {
-  data:"",
+  data: "",
   uiParent: $(".m-calendar"),
-  uiEvent: $(".m-calendar").find(".event"),
-  start: function(){
+  uiEvent: $(".m-calendar")
+    .find(".event")
+    .clone(),
+  start: function() {
     this.data = OM.data["Calendar"]["Event Data"];
     setTimeout(this.setData());
   },
-  setData: function () {
+  setData: function() {
+    this.uiParent.html("");
     for (let i = 0; i < this.data.length; i++) {
-      const obj = this.data[i];
-      
+      var uiEvent = this.uiEvent.clone();
+      var obj = this.data[i];
+      uiEvent.find(".event-title").html(obj["title"]);
+      if (obj["location"]) {
+        uiEvent.find(".event-location").html(obj["location"]);
+      }
+      else{
+        uiEvent.find(".event-location").remove();
+      }
+      if (obj["description"]) {
+        uiEvent.find(".event-description").html(obj["description"]);
+      }
+      else{
+        uiEvent.find(".event-description").remove();
+      }
+      uiEvent
+        .find(".event-time")
+        .html(this.getEventTime(obj["starttime"], obj["endtime"]));
+      this.uiParent.append(uiEvent);
     }
+    
+  },
+  getEventTime: function(start, end) {
+    start = new Date(start);
+    end = new Date(end);
+    return (
+      OM.getFormatedDate(start) +
+      " | " +
+      OM.getFormatedTime(start) +
+      " - " +
+      OM.getFormatedTime(end)
+    );
   }
 };
