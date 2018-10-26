@@ -12,39 +12,40 @@
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat" rel="stylesheet">
   <style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-      }
-  
       .display-1 {
+        font-family: 'Montserrat', sans-serif;
         font-size: 4rem;
         font-weight: 900;
       }
   
       .display-2 {
+        font-family: 'Montserrat', sans-serif;
         font-size: 3rem;
         font-weight: 700;
       }
   
       .display-3 {
+        font-family: 'Montserrat', sans-serif;
         font-size: 2rem;
         font-weight: 500;
       }
 
       .display-4 {
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.5rem;
         font-weight: 500;
       }
-
+      .navbar {
+        font-family: 'Montserrat', sans-serif;
+      }
   
       .navbar-brand {
-        /* font-family: 'Montserrat', sans-serif; */
         font-size: 45px;
         font-weight: 1000;
       }
   
       .navbar-nav .btn {
-        /* font-family: 'Montserrat', sans-serif; */
+        font-family: 'Montserrat', sans-serif;
         font-size: 22px;
         font-weight: 1000;
         border: none;
@@ -111,16 +112,14 @@
 
       }
       .event-title{
-        font-size: 2rem;
-        font-weight: 600;
+        font-size: 2.2rem;
         font-family: 'Abel', sans-serif;
-      }
-      .event-time{
-        width:100px;
-        font-weight:700;
       }
       .cursor-pointer{
         cursor: pointer;
+      }
+      .top-hr {
+        border-top: 1px solid rgba(0,0,0,.1);
       }
 
     </style>
@@ -168,82 +167,31 @@
     <h2 class="display-2 text-center">Events</h2>
     <hr class="star-light">
     <div class="container container-medium text-small m-calendar">
-      <!-- <div class="card calendar-day">
-        <div class="card-header lead date">Loading...</div>
-        <div class="card-body">
-          <div class="d-flex cursor-pointer event">
-            <div class="event-time"></div>
-            <div class="event-title"></div>
-          </div>
-        </div>
+      <div class="card card-body my-1 event">
+          <p class="event-title text-small text-dark">At-Taqwa Youth Weekly Halaqah</p>
+          <p class="m-0 text-secondary top-hr">Wednesday, <b>January 23</b> | 10:15am - 11:00am</p>
       </div>
-      <div class="card card-body calendar-day">
-          <div class="d-flex cursor-pointer event">
-            <p class="text-center bg-info display-3 py-1 px-3 rounded text-white m-0">01</p>
-            <p class="m-0">At-Taqwa Youth Weekly Halaqah</p>
-          </div>
-        <div class="d-flex cursor-pointer event">
-          <div class="event-time"></div>
-          <div class="event-title"></div>
-        </div>
-      </div> -->
-      <div class="card card-body my-1">
-          <p class="event-title text-dark">At-Taqwa Youth Weekly Halaqah</p>
-          <hr class="m-0">
-          <p class="m-0 text-secondary">Wednesday, <b>January 23</b> | 10:15am - 11:00am</p>
+      <div class="card card-body my-1 event">
+          <p class="event-title text-small text-dark">Interfaith Meeting</p>
+          <p class="event-time m-0 text-secondary top-hr">Wednesday, January 23 | 10:15am - 11:00am</p>
+          <p class="event-location m-0 text-dark top-hr">Location: St Stephen's Lutheran Church, 1575 Charlton St, West St Paul, MN 55118, USA</p>
+          <p class="event-description m-0 top-hr">Topic is "Misconceptions about women in Islam and the West".</p>
       </div>
-      <div class="card card-body my-1">
-          <p class="event-title  text-dark">Interfaith Meeting</p>
-          <hr class="m-0">
-          <p class="m-0 text-secondary">Wednesday, <b>January 23</b> | 10:15am - 11:00am</p>
-          <hr class="m-0">
-          <p class="m-0 text-dark">Location: St Stephen's Lutheran Church, 1575 Charlton St, West St Paul, MN 55118, USA</p>
-          <hr class="m-0">
-          <p class="m-0">Topic is "Misconceptions about women in Islam and the West".</p>
-      </div>
-      <div class="card card-body my-1">
-          <p class="event-title text-dark">Sunday School</p>
+      <div class="card card-body my-1 event">
+          <p class="event-title text-smalltext-dark">Sunday School</p>
           <hr class="m-0">
           <p class="m-0 text-secondary">Sunday, <b>October 23</b> | 10:15am - 11:00am</p>
       </div>
-      <div class="card card-body my-1">
-          <p class="event-title text-dark">Dugsi Academy Soccer Social</p>
+      <div class="card card-body my-1 event">
+          <p class="event-title text-smalltext-dark">Dugsi Academy Soccer Social</p>
           <hr class="m-0">
           <p class="m-0 text-secondary">Wednesday, <b>January 23</b> | 10:15am - 11:00am</p>
       </div>
-      <div class="card card-body my-1">
-          <p class="event-title text-dark">Brothers Tafseer Halaqah</p>
+      <div class="card card-body my-1 event">
+          <p class="event-title text-smalltext-dark">Brothers Tafseer Halaqah</p>
           <hr class="m-0">
           <p class="m-0 text-secondary">Wednesday, <b>January 23</b> | 10:15am - 11:00am</p>
       </div>
-      <!-- <div class="card calendar-day">
-        <div class="card-header lead"> Wednesday October 17</div>
-        <div class="card-body">
-          <div class="d-flex cursor-pointer">
-            <div class="event-time">8:30 pm</div>
-            <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
-          </div>
-          <hr>
-          <div class="d-flex cursor-pointer">
-            <div class="event-time">8:30 pm</div>
-            <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
-          </div>
-          <hr>
-          <div class="d-flex cursor-pointer">
-            <div class="event-time">8:30 pm</div>
-            <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
-          </div>
-        </div>
-      </div>
-      <div class="card calendar-day">
-        <div class="card-header lead"> Wednesday October 17</div>
-        <div class="card-body">
-          <div class="d-flex cursor-pointer">
-            <div class="event-time">8:30 pm</div>
-            <div>Withstanding the Trails of Life by Sh. Attiah Emarah </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
   <div class="bg-info text-center py-5 text-white">

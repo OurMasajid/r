@@ -198,14 +198,12 @@ var JummaPrayer = {
 var MCalendar = {
   data:"",
   uiParent: $(".m-calendar"),
-  uiDay: $(".m-calendar").find(".calendar-day"),
-  uiEvent: $(".m-calendar").find(".calendar-day").find(".event"),
+  uiEvent: $(".m-calendar").find(".event"),
   start: function(){
     this.data = OM.data["Calendar"]["Event Data"];
     setTimeout(this.setData());
   },
   setData: function () {
-    var lastDate = "";
     for (let i = 0; i < this.data.length; i++) {
       const obj = this.data[i];
       
