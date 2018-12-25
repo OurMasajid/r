@@ -17,7 +17,7 @@ tobedeleted["data"]= "";
  
 
 /*program start here*/
-showLoading();
+// showLoading();
 loader("tobedeleted.data", tobedeleted.dataurl, "createHTML()");
 
 const today = new Date();
@@ -55,7 +55,7 @@ function createHTML(){
 
    update.innerHTML = data[i]["Message"];
    
-   hideLoading();
+  //  hideLoading();
    return;
   }
  }
