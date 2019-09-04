@@ -31,8 +31,9 @@
         /* tr:nth-child(odd) {
             background-color: #f3f3f3;
         } */
-        tr.border td {
+        tr.borderc td {
             border-top: 1pt solid grey;
+            border-bottom: 1pt solid #e9ecef;
         }
 
         tbody>tr:nth-child(1) {
@@ -62,6 +63,7 @@
         }
         .warning, td {
             padding-bottom: 2px;
+            border-bottom: 1px solid grey;
         }
     </style>
 </head>
@@ -79,7 +81,7 @@
                 <td>Athan</td>
                 <td>Iqama</td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Fajr</td>
                 <td id="fajr">0:00</td>
                 <td id="fajri">0:00</td>
@@ -87,14 +89,14 @@
             <tr class="warning">
                 <td colspan="3">Fajr iqama will be at <span id="fajrt"></span> tomorrow </td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Sunrise</td>
                 <td colspan="2" id="sunrise">0:00</td>
             </tr>
             <tr class="warning">
                 <td colspan="3">Sunrise will be at <span id="sunriset"></span> tomorrow </td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Zuhur</td>
                 <td id="zuhr">0:00</td>
                 <td id="zuhri">0:00</td>
@@ -102,7 +104,7 @@
             <tr class="warning">
                 <td colspan="3">Zuhur iqama will be at <span id="zuhrt"></span> tomorrow </td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Asr</td>
                 <td id="asr">0:00</td>
                 <td id="asri">0:00</td>
@@ -110,7 +112,7 @@
             <tr class="warning">
                 <td colspan="3">Asr iqama will be at <span id="asrt"></span> tomorrow </td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Maghrib</td>
                 <td id="maghrib">0:00</td>
                 <td id="maghribi">0:00</td>
@@ -118,7 +120,7 @@
             <tr class="warning">
                 <td colspan="3">Maghrib iqama will be at <span id="maghribt"></span> tomorrow </td>
             </tr>
-            <tr class="border">
+            <tr class="borderc">
                 <td>Esha</td>
                 <td id="esha">0:00</td>
                 <td id="eshai">0:00</td>
@@ -126,7 +128,7 @@
             <tr class="warning">
                 <td colspan="3">Esha iqama will be at <span id="eshat"></span> tomorrow</td>
             </tr>
-            <!-- <tr class="border">
+            <!-- <tr class="borderc">
                 <td colspan="3" id="update">.</td>
             </tr> -->
         </tbody>
