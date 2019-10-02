@@ -1,3 +1,4 @@
+/* TODO when months dont have 31 days hide extra rows */
 function loader(vartosaveto, url, callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -23,7 +24,13 @@ showLoading();
 loader("tobedeleted.data", tobedeleted.dataurl, "createHTML()");
 
 selectedDate = new Date();
-selectedDate.setDate(selectedDate.getDate() + 2);
+
+if (params.has('month') === true) {
+    selectedDate.setMonth(parseInt(params.get("month")-1));
+}
+else {
+    selectedDate.setDate(selectedDate.getDate() + 2);
+}
 var monthsData = [];
 var tbodyString = "";
 const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
