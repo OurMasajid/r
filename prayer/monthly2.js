@@ -20,7 +20,6 @@ tobedeleted["data"] = "";
 
 
 /*program start here*/
-showLoading();
 loader("tobedeleted.data", tobedeleted.dataurl, "createHTML()");
 
 selectedDate = new Date();
@@ -44,23 +43,23 @@ function createHTML() {
     for (let i = 0; i < data.length; i++) {
         if (month == data[i]["Month"]) {
             dayNumber++;
-            $($(".Date").get(parseInt(dayNumber))).text(getDateToShow(data[i]["Month"],data[i]["Date"]));
-            $($(".Day").get(parseInt(dayNumber))).text(getDayToShow(data[i]["Month"],data[i]["Date"]));
-            $($(".Fajr").get(parseInt(dayNumber))).text(data[i]["Fajr"]);
-            $($(".Sunrise").get(parseInt(dayNumber))).text(data[i]["Sunrise"]);
-            $($(".Zuhr").get(parseInt(dayNumber))).text(data[i]["Zuhr"]);
-            $($(".Asr").get(parseInt(dayNumber))).text(data[i]["Asr"]);
-            $($(".Maghrib").get(parseInt(dayNumber))).text(data[i]["Maghrib"]);
-            $($(".Esha").get(parseInt(dayNumber))).text(data[i]["Esha"]);
+            $($(".Date").get(dayNumber)).text(getDateToShow(data[i]["Month"],data[i]["Date"]));
+            $($(".Day").get(dayNumber)).text(getDayToShow(data[i]["Month"],data[i]["Date"]));
+            $($(".Fajr").get(dayNumber)).text(data[i]["Fajr"]);
+            $($(".Sunrise").get(dayNumber)).text(data[i]["Sunrise"]);
+            $($(".Zuhr").get(dayNumber)).text(data[i]["Zuhr"]);
+            $($(".Asr").get(dayNumber)).text(data[i]["Asr"]);
+            $($(".Maghrib").get(dayNumber)).text(data[i]["Maghrib"]);
+            $($(".Esha").get(dayNumber)).text(data[i]["Esha"]);
 
-            $($(".fIqama").get(parseInt(dayNumber))).text(data[i]["fIqama"]);
-            $($(".zIqama").get(parseInt(dayNumber))).text(data[i]["zIqama"]);
-            $($(".aIqama").get(parseInt(dayNumber))).text(data[i]["aIqama"]);
-            $($(".mIqama").get(parseInt(dayNumber))).text(data[i]["mIqama"]);
-            $($(".eIqama").get(parseInt(dayNumber))).text(data[i]["eIqama"]);
+            $($(".fIqama").get(dayNumber)).text(data[i]["fIqama"]);
+            $($(".zIqama").get(dayNumber)).text(data[i]["zIqama"]);
+            $($(".aIqama").get(dayNumber)).text(data[i]["aIqama"]);
+            $($(".mIqama").get(dayNumber)).text(data[i]["mIqama"]);
+            $($(".eIqama").get(dayNumber)).text(data[i]["eIqama"]);
         }
     }
-    cleanUp();
+    cleanUp(dayNumber);
 }
 
 function getDateToShow(month, date){
@@ -71,10 +70,14 @@ function getDayToShow(month, date){
     return days[new Date(selectedDate.getFullYear(), month-1, date).getDay()];
 }
 
-function cleanUp(){
+function cleanUp(dayNumber){
     $("tbody").html($("tbody").html().replace(/am/ig, '').replace(/pm/ig, ''));
     const info = tobedeleted["data"]["Info"]["data"][0];
     masjidname.innerHTML = info["name"];
     masjidaddress.innerHTML = info["address"] + " " + info["city"] + ", " + info["state"] + " " + info["zip"];
-    hideLoading();
+    //hiding extra rows
+    while (dayNumber<31) {//if true there are rows to hide
+        dayNumber++;
+        $($(".Date").get(dayNumber)).parent().hide();
+    }
 }
