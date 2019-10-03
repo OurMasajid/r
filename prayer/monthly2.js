@@ -11,7 +11,8 @@ function loader(vartosaveto, url, callback) {
     xhttp.send();
 }
 
-const params = new URLSearchParams(location.search);
+let url = new URL(location);
+let params = new URLSearchParams(location.search);
 var tobedeleted = {
     masjidKey: params.get("masjidKey")
 };
@@ -34,6 +35,10 @@ var monthsData = [];
 var tbodyString = "";
 const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+
+document.getElementById("selectedMonth").value = selectedDate.getMonth() + 1;
+
 
 function createHTML() {
     let data = tobedeleted["data"]["Daily Prayer"]["data"];
@@ -80,4 +85,18 @@ function cleanUp(dayNumber){
         dayNumber++;
         $($(".Date").get(dayNumber)).parent().hide();
     }
+}
+
+/* ui triggers */
+
+
+
+function monthChanged(){
+    params.set("month", document.getElementById("selectedMonth").value);
+    let newUrl = location.protocol + "//" + location.hostname;
+    if(location.port != ""){
+        newUrl += ":" + location.port;
+    }
+    newUrl += location.pathname + "?"+ params.toString();
+    window.location = newUrl;
 }
