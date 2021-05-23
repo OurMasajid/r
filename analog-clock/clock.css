@@ -1,0 +1,46 @@
+#analog-clock{
+	position: relative;
+	margin: auto;
+	height: 40vw;
+	/*to make the height and width responsive*/
+	width: 40vw;
+	background: url(clock-face.jpg) no-repeat;
+	/*setting our background image*/
+	background-size: 100%;
+}
+
+#clockhour,
+#clockminute,
+#clocksecond {
+	position: absolute;
+	background: black;
+	border-radius: 10px;
+	transform-origin: bottom;
+}
+
+#clockhour {
+	width: 1.8%;
+	height: 25%;
+	top: 25%;
+  /* left: 48.85%; */
+  left: 50%;
+	opacity: 0.8;
+}
+
+#clockminute {
+	width: 1.6%;
+	height: 30%;
+	top: 20%;
+  /* left: 48.9%; */
+  left: 50%;
+	opacity: 0.8;
+}
+
+#clocksecond {
+	width: 1%;
+	height: 40%;
+	top: 10%;
+  /* left: 49.25%; */
+  left: 50%;
+	opacity: 0.8;
+}
