@@ -23,10 +23,14 @@
     }
 
     .h1 {
-      font-size: 3.3vw;
+      font-size: 5vw;
     }
 
     .h2 {
+      font-size: 3.5vw;
+    }
+
+    .h3 {
       font-size: 2.3vw;
     }
   </style>
@@ -37,46 +41,44 @@
     <div class="row h-100">
       <div class="col-12 m-auto">
         <div id="date" class="d-none"></div>
-        <div id="digi-clock" class="title"><span class="main"></span><span class="seconds"></span></div>
+        <div id="digi-clock" ></div>
       </div>
       <div class="col">
-        <div class="h1">Fajr</div>
-        <div class="h2" id="fajr"></div>
-        <div class="h2" id="fajri"></div>
+        <div class="h2">Fajr</div>
+        <div class="h3" id="fajr"></div>
+        <div class="h3" id="fajri"></div>
       </div>
       <div class="col">
-        <div class="h1">Sunrise</div>
-        <div class="h2" id="sunrise"></div>
+        <div class="h2">Sunrise</div>
+        <div class="h3" id="sunrise"></div>
       </div>
       <div class="col">
-        <div class="h1">Duhr</div>
-        <div class="h2" id="zuhr"></div>
-        <div class="h2" id="zuhri"></div>
+        <div class="h2">Duhr</div>
+        <div class="h3" id="zuhr"></div>
+        <div class="h3" id="zuhri"></div>
       </div>
       <div class="col">
-        <div class="h1">Asr</div>
-        <div class="h2" id="asr"></div>
-        <div class="h2" id="asri"></div>
+        <div class="h2">Asr</div>
+        <div class="h3" id="asr"></div>
+        <div class="h3" id="asri"></div>
       </div>
       <div class="col">
-        <div class="h1">Maghrib</div>
-        <div class="h2" id="maghrib"></div>
-        <div class="h2" id="maghribi"></div>
+        <div class="h2">Maghrib</div>
+        <div class="h3" id="maghrib"></div>
+        <div class="h3" id="maghribi"></div>
       </div>
       <div class="col">
-        <div class="h1">Isha</div>
-        <div class="h2" id="esha"></div>
-        <div class="h2" id="eshai"></div>
+        <div class="h2">Isha</div>
+        <div class="h3" id="esha"></div>
+        <div class="h3" id="eshai"></div>
       </div>
       <div class="col-12 d-none" id="update"></div>
     </div>
   </div>
 
   <script async src="daily.js"></script>
-  <link rel="stylesheet" href="../analog-clock/clock.css" />
-  <script>
-    setInterval(function () { document.getElementById("digi-clock").innerHTML = new Date().toLocaleTimeString() }, 1000);
-  </script>
+  <link rel="stylesheet" href="../digi-clock/clock.css" />
+  <script src="../digi-clock/clock.js"></script>
 </body>
 
 </html>
