@@ -33,6 +33,15 @@
     .h3 {
       font-size: 2.3vw;
     }
+
+    .prayerCol {
+      margin: auto;
+      border-radius: 6px;
+    }
+
+    .prayerCol.active {
+      background-color: beige;
+    }
   </style>
 </head>
 
@@ -41,33 +50,33 @@
     <div class="row h-100">
       <div class="col-12 m-auto">
         <div id="date" class="d-none"></div>
-        <div id="digi-clock" ></div>
+        <div id="digi-clock"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Fajr">
         <div class="h2">Fajr</div>
         <div class="h3" id="fajr"></div>
         <div class="h3" id="fajri"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Sunrise">
         <div class="h2">Sunrise</div>
         <div class="h3" id="sunrise"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Zuhr">
         <div class="h2">Duhr</div>
         <div class="h3" id="zuhr"></div>
         <div class="h3" id="zuhri"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Asr">
         <div class="h2">Asr</div>
         <div class="h3" id="asr"></div>
         <div class="h3" id="asri"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Maghrib">
         <div class="h2">Maghrib</div>
         <div class="h3" id="maghrib"></div>
         <div class="h3" id="maghribi"></div>
       </div>
-      <div class="col">
+      <div class="col prayerCol Esha">
         <div class="h2">Isha</div>
         <div class="h3" id="esha"></div>
         <div class="h3" id="eshai"></div>
@@ -77,8 +86,21 @@
   </div>
 
   <script async src="daily.js"></script>
-  <link rel="stylesheet" href="../digi-clock/clock.css" />
-  <script src="../digi-clock/clock.js"></script>
+  <script async src="currentPrayer.js"></script>
+  <!-- <link rel="stylesheet" href="../digi-clock/clock.css" /> -->
+  <script async src="../digi-clock/clock.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script>
+    let currentPrayerTimeInterval =
+      setInterval(function () {
+        let nextPrayer = whatsTheCurrentPrayer();
+        $(".prayerCol").removeClass("active");
+        if (nextPrayer) {
+          $("." + nextPrayer).addClass("active");
+        }
+      }, 1000)
+  </script>
 </body>
 
 </html>

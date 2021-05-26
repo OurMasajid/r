@@ -9,16 +9,16 @@ function loader(vartosaveto, url, callback) {
  xhttp.open("GET", url, true);
  xhttp.send();
 }
-var tobedeleted = {
+var info = {
  "masjidKey" : window.location.href.split("?")[1]
 };
-tobedeleted["dataurl"] = tobedeleted.masjidKey+"/data.json";
-tobedeleted["data"]= "";
+info["dataurl"] = info.masjidKey+"/data.json";
+info["data"]= "";
  
 
 /*program start here*/
 //  showLoading();
-loader("tobedeleted.data", tobedeleted.dataurl, "createHTML()");
+loader("info.data", info.dataurl, "createHTML()");
 
 const today = new Date();
 var tomorrow = new Date();
@@ -34,7 +34,7 @@ const dayNames = [
 ];
 
 function createHTML(){
- let data = tobedeleted["data"]["Daily Prayer"]["data"];
+ let data = info["data"]["Daily Prayer"]["data"];
  
  for (let i = 0; i < data.length; i++) {
   /* finding todays date */
