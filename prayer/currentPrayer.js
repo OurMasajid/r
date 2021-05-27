@@ -15,22 +15,27 @@ function whatsTheCurrentPrayer() {
     }
   }
   
-  if (isCloseToThisTime(todaysData["Fajr"], 50)) {
+  if (isCloseToThisTime(todaysData["Fajr"], 15) ||
+      isCloseToThisTime(todaysData["fIqama"], 50)) {
     return "Fajr";
   }
   if (isCloseToThisTime(todaysData["Sunrise"], 10)) {
     return "Sunrise";
   }
-  if (isCloseToThisTime(todaysData["Zuhr"], 100)) {
+  if (isCloseToThisTime(todaysData["Zuhr"], 15) ||
+      isCloseToThisTime(todaysData["zIqama"], 50)) {
     return "Zuhr";
   }
-  if (isCloseToThisTime(todaysData["Asr"], 30)) {
+  if (isCloseToThisTime(todaysData["Asr"], 15) ||
+      isCloseToThisTime(todaysData["aIqama"], 30)) {
     return "Asr";
   }
-  if (isCloseToThisTime(todaysData["Maghrib"], 20)) {
+  if (isCloseToThisTime(todaysData["Maghrib"], 10) ||
+      isCloseToThisTime(todaysData["mIqama"], 30)) {
     return "Maghrib";
   }
-  if (isCloseToThisTime(todaysData["Esha"], 25)) {
+  if (isCloseToThisTime(todaysData["Esha"], 10) ||
+      isCloseToThisTime(todaysData["eIqama"], 25)) {
     return "Esha";
   }
 }
