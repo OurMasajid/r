@@ -36,7 +36,7 @@ function whatsTheCurrentPrayer() {
 }
 function isCloseToThisTime(givenTimeInString = "12:30 AM", time = 15) {
   let givenTime = getDateObjFromStringTime(givenTimeInString);
-  console.log(diff_minutes(new Date(), givenTime));
+  //console.log(givenTimeInString,givenTime,diff_minutes(new Date(), givenTime));
   if (diff_minutes(new Date(), givenTime) < time ) {
     return true;
   }
@@ -46,10 +46,11 @@ function getDateObjFromStringTime(timeString = "12:30 AM") {
   let hour = timeString.split(":")[0];
   //add 12 if PM
   if (timeString.split(":")[1].split(" ")[1].indexOf("PM") > -1) {
-    hour = hour + 12;
+    hour = parseInt(hour) + 12;
   }
   let minute = timeString.split(":")[1].split(" ")[0];
   let dateObj = new Date();
+  //console.log(hour,minute);
   dateObj.setHours(hour,minute);
   return dateObj;
 }
