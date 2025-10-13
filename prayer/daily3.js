@@ -87,6 +87,12 @@ function createHTML() {
     setIqama('asr', todayIqamaTimes.aIqama, tomorrowIqamaTimes.aIqama);
     setIqama('maghrib', todayIqamaTimes.mIqama, tomorrowIqamaTimes.mIqama);
     setIqama('esha', todayIqamaTimes.eIqama, tomorrowIqamaTimes.eIqama);
+
+    // Set link for monthly schedule button
+    const monthlyLink = document.getElementById('monthly-link');
+    if (monthlyLink) {
+        monthlyLink.href = `monthly3.html?masjidKey=${tobedeleted.masjidKey}`;
+    }
 }
 
 function createJummaHTML(jummaData) {
