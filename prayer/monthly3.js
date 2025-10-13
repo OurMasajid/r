@@ -51,7 +51,7 @@ function createHTML() {
     const month = selectedDate.getMonth(); // 0-indexed month
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    scheduleTitle.innerHTML = `${fullMonths[month]} ${year}`;
+    scheduleTitle.innerHTML = `${fullMonths[month]} ${year} Daily Prayer Schedule`;
 
     let tbodyHtml = "";
 
