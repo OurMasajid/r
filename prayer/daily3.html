@@ -16,7 +16,6 @@
             color: #333;
             margin: 0;
             padding: 20px;
-            display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -25,7 +24,7 @@
 
         table {
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             border-collapse: collapse;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
@@ -86,10 +85,17 @@
             display: block;
             margin-top: 4px;
         }
+
+        .jumma-table {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <div id="jumma-section" style="display: none;">
+        <!-- Jumma prayer times will be dynamically inserted here on Fridays -->
+    </div>
     <div>
         <table align="center">
             <thead>

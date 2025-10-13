@@ -30,12 +30,18 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 
 function createHTML() {
     const prayerData = tobedeleted["data"]["Daily Prayer"]["data"];
+    const jummaData = tobedeleted["data"]["Jumma"] ? tobedeleted["data"]["Jumma"]["data"] : [];
     const info = tobedeleted["data"]["Info"]["data"][0];
     const [lat, lon] = info.coordinates.split(',');
     const coordinates = new adhan.Coordinates(lat, lon);
     const calculationParams = adhan.CalculationMethod.NorthAmerica();
 
-    // Set Date Header
+    // Handle Jumma Prayers
+    if (jummaData && jummaData.length > 0) {
+        createJummaHTML(jummaData);
+    }
+
+    // Set Daily Prayers Date Header
     const formattedDate = `${dayNames[today.getDay()]}, ${monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
     document.getElementById('date-header').textContent = formattedDate;
 
@@ -81,6 +87,33 @@ function createHTML() {
     setIqama('asr', todayIqamaTimes.aIqama, tomorrowIqamaTimes.aIqama);
     setIqama('maghrib', todayIqamaTimes.mIqama, tomorrowIqamaTimes.mIqama);
     setIqama('esha', todayIqamaTimes.eIqama, tomorrowIqamaTimes.eIqama);
+}
+
+function createJummaHTML(jummaData) {
+    const jummaSection = document.getElementById('jumma-section');
+    let jummaHtml = '';
+
+    jummaData.forEach((jumma, index) => {
+        const jummaNumber = jummaData.length > 1 ? ` ${index + 1}` : '';
+        jummaHtml += `
+            <table align="center" class="jumma-table">
+                <thead>
+                    <tr><th colspan="2">Jumma${jummaNumber}</th></tr>
+                </thead>
+                <tbody>
+                    ${jumma.Khateeb ? `<tr><td class="prayer-name">Khateeb</td><td>${jumma.Khateeb}</td></tr>` : ''}
+                    ${jumma.Khutba ? `<tr><td class="prayer-name">Khutba</td><td>${jumma.Khutba}</td></tr>` : ''}
+                    ${jumma.Iqama ? `<tr><td class="prayer-name">Iqama</td><td>${jumma.Iqama}</td></tr>` : ''}
+                    ${jumma.Language ? `<tr><td class="prayer-name">Language</td><td>${jumma.Language}</td></tr>` : ''}
+                </tbody>
+            </table>
+        `;
+    });
+
+    if (jummaHtml) {
+        jummaSection.innerHTML = jummaHtml;
+        jummaSection.style.display = 'block';
+    }
 }
 
 function setIqama(prayer, todayIqama, tomorrowIqama) {
