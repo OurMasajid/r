@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Daily Prayer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .headings {
+            font-size: small;
+            color: darkblue;
+        }
+
+        h2,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 7.5in;
+            border: 1px solid;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px !important;
+            font-size: 22px;
+        }
+
+        th {
+            background: gray;
+            color: white !important;
+        }
+
+        .prayer-name {
+            text-align: left;
+            width: 33%;
+        }
+
+        .adhan-time {
+            color: red;
+        }
+
+        .tomorrow-change {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="headings">
+        <h2 id="masjidname">{title}</h2>
+        <p id="masjidaddress">{address}</p>
+    </div>
+
+    <div>
+        <table align="center">
+            <thead>
+                <tr>
+                    <th colspan="3" id="date-header"></th>
+                </tr>
+                <tr>
+                    <th>Prayer</th>
+                    <th>Adhan</th>
+                    <th>Iqama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="prayer-name">Fajr</td>
+                    <td id="fajr-adhan" class="adhan-time"></td>
+                    <td id="fajr-iqama"></td>
+                </tr>
+                <tr>
+                    <td class="prayer-name">Sunrise</td>
+                    <td id="sunrise-adhan" class="adhan-time" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="prayer-name">Zuhr</td>
+                    <td id="zuhr-adhan" class="adhan-time"></td>
+                    <td id="zuhr-iqama"></td>
+                </tr>
+                <tr>
+                    <td class="prayer-name">Asr</td>
+                    <td id="asr-adhan" class="adhan-time"></td>
+                    <td id="asr-iqama"></td>
+                </tr>
+                <tr>
+                    <td class="prayer-name">Maghrib</td>
+                    <td id="maghrib-adhan" class="adhan-time"></td>
+                    <td id="maghrib-iqama"></td>
+                </tr>
+                <tr>
+                    <td class="prayer-name">Esha</td>
+                    <td id="esha-adhan" class="adhan-time"></td>
+                    <td id="esha-iqama"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="../adhan.umd.min.js"></script>
+    <script src="daily3.js"></script>
+</body>
+
+</html>
