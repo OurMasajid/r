@@ -35,10 +35,6 @@ function createHTML() {
     const coordinates = new adhan.Coordinates(lat, lon);
     const calculationParams = adhan.CalculationMethod.NorthAmerica();
 
-    // Set Masjid Info
-    masjidname.innerHTML = info["name"];
-    masjidaddress.innerHTML = info["address"] + " " + info["city"] + ", " + info["state"] + " " + info["zip"];
-
     // Set Date Header
     const formattedDate = `${dayNames[today.getDay()]}, ${monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
     document.getElementById('date-header').textContent = formattedDate;
