@@ -107,6 +107,12 @@ function createHTML() {
     // Merge Iqama cells
     mergeAllIqamaCells();
 
+    // Apply alternating row highlighting
+    applyAlternatingHighlight();
+
+    // Highlight current day
+    highlightCurrentDay();
+
     cleanUp(daysInMonth);
 }
 
@@ -116,6 +122,7 @@ function mergeAllIqamaCells() {
     let prevIqamaSet = null;
     let firstRowOfSet = null;
     let rowspan = 1;
+    let groupId = 0;
 
     function applyRowspan() {
         if (rowspan > 1 && firstRowOfSet) {
@@ -125,7 +132,7 @@ function mergeAllIqamaCells() {
         }
     }
 
-    dataTrs.each(function() {
+    dataTrs.each(function () {
         const currentRow = $(this);
         const currentIqamaSet = iqamaClasses.map(cls => currentRow.find('.' + cls).html()).join('|');
 
@@ -137,10 +144,48 @@ function mergeAllIqamaCells() {
             prevIqamaSet = currentIqamaSet;
             firstRowOfSet = currentRow;
             rowspan = 1;
+            groupId++;
         }
+        $(this).attr('data-iqama-group', groupId);
     });
 
     applyRowspan(); // Apply rowspan for the last set of rows
+}
+
+function applyAlternatingHighlight() {
+    let lastGroupId = -1;
+    $("tbody tr").each(function() {
+        const row = $(this);
+        const groupId = parseInt(row.attr('data-iqama-group'));
+        if (groupId !== lastGroupId) {
+            const groupClass = (groupId % 2 === 0) ? 'even-group' : 'odd-group';
+            $(`tr[data-iqama-group="${groupId}"]`).addClass(groupClass);
+            lastGroupId = groupId;
+        }
+    });
+}
+
+function highlightCurrentDay() {
+    const today = new Date();
+    // only highlight if the month is the current month
+    if (today.getMonth() !== selectedDate.getMonth() || today.getFullYear() !== selectedDate.getFullYear()) {
+        return;
+    }
+
+    const dayOfMonth = today.getDate();
+    const dataTrs = $("tbody tr");
+
+    dataTrs.each(function() {
+        const row = $(this);
+        const dateCellText = row.find('.Date').text(); // e.g. "1 (Mon)"
+        const day = parseInt(dateCellText.split(' ')[0]);
+
+        if (day === dayOfMonth) {
+            const groupId = row.attr('data-iqama-group');
+            $(`tr[data-iqama-group="${groupId}"]`).addClass('highlight-group');
+            return false; // break the loop
+        }
+    });
 }
 
 function getDateToShow(month, date) {
