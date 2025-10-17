@@ -144,6 +144,10 @@
             <option value="11">November</option>
             <option value="12">December</option>
         </select>
+        <input type="checkbox" id="showHijri" onchange="toggleHijri()">
+        <label for="showHijri">Show Islamic Date</label>
+        <label for="hijriAdjustment">| Hijri Adjustment:</label>
+        <input class="" type="number" id="hijriAdjustment" name="hijriAdjustment" min="-2" max="2" value="0" onchange="hijriAdjustmentChanged()">
     </div>
     <hr class="scr-only">
     <div class="headings">
@@ -157,6 +161,7 @@
             <thead>
                 <tr class="">
                     <th class="Date">Date</th>
+                    <th class="islamicDate">Hijri</th>
                     <th class="Fajr">Fajr</th>
                     <th class="fIqama">Iqama</th>
                     <th class="Sunrise">Sunrise</th>
@@ -176,7 +181,6 @@
         </table>
         <footer><p id="footer"></p></footer>
     </div>
-    <script src="https://okay-apps.github.io/simple-loading-indicator.js/simple-loading-indicator.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

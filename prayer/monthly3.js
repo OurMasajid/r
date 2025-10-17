@@ -41,6 +41,17 @@ document.getElementById("selectedMonth").value = selectedDate.getMonth() + 1;
 
 
 function createHTML() {
+    const showHijriParam = params.get('showHijri');
+    const showHijri = showHijriParam === 'true';
+    document.getElementById('showHijri').checked = showHijri;
+
+    if (!showHijri) {
+        document.querySelector('th.islamicDate').style.display = 'none';
+    }
+
+    const hijriAdjustment = parseInt(params.get('hijriAdjustment')) || 0;
+    document.getElementById('hijriAdjustment').value = hijriAdjustment;
+
     const prayerData = tobedeleted["data"]["Daily Prayer"]["data"];
     const info = tobedeleted["data"]["Info"]["data"][0];
     const [lat, lon] = info.coordinates.split(',');
@@ -52,6 +63,7 @@ function createHTML() {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     scheduleTitle.innerHTML = `${fullMonths[month]} ${year} Daily Prayer Schedule`;
+    document.querySelector('th.Date').innerHTML = months[month + 1];
 
     let tbodyHtml = "";
 
@@ -84,9 +96,14 @@ function createHTML() {
         const prayerTimes = new adhan.PrayerTimes(coordinates, date, calculationParams);
         const iqamaTimes = getIqamaForDate(date);
 
+        const adjustedDate = new Date(date);
+        adjustedDate.setDate(adjustedDate.getDate() + hijriAdjustment);
+        const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'numeric' }).format(adjustedDate);
+
         tbodyHtml += `
             <tr>
                 <td class="Date">${day} (${getDayToShow(month + 1, day)})</td>
+                ${showHijri ? `<td class="islamicDate">${islamicDate}</td>` : ''}
                 <td class="Fajr">${formatTime(prayerTimes.fajr)}</td>
                 <td class="fIqama">${iqamaTimes.fIqama || ''}</td>
                 <td class="Sunrise">${formatTime(prayerTimes.sunrise)}</td>
@@ -208,6 +225,28 @@ function cleanUp(dayNumber) {
 
 function monthChanged() {
     params.set("month", document.getElementById("selectedMonth").value);
+    let newUrl = location.protocol + "//" + location.hostname;
+    if (location.port != "") {
+        newUrl += ":" + location.port;
+    }
+    newUrl += location.pathname + "?" + params.toString();
+    window.location = newUrl;
+}
+
+function toggleHijri() {
+    const showHijriCheckbox = document.getElementById('showHijri');
+    params.set('showHijri', showHijriCheckbox.checked);
+    let newUrl = location.protocol + "//" + location.hostname;
+    if (location.port != "") {
+        newUrl += ":" + location.port;
+    }
+    newUrl += location.pathname + "?" + params.toString();
+    window.location = newUrl;
+}
+
+function hijriAdjustmentChanged() {
+    const adjustment = document.getElementById('hijriAdjustment').value;
+    params.set('hijriAdjustment', adjustment);
     let newUrl = location.protocol + "//" + location.hostname;
     if (location.port != "") {
         newUrl += ":" + location.port;
