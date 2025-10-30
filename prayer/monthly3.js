@@ -62,7 +62,22 @@ function createHTML() {
     const month = selectedDate.getMonth(); // 0-indexed month
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    scheduleTitle.innerHTML = `${fullMonths[month]} ${year} Daily Prayer Schedule`;
+    const firstDay = new Date(year, month, 1);
+    const adjustedFirstDay = new Date(firstDay);
+    adjustedFirstDay.setDate(adjustedFirstDay.getDate() + hijriAdjustment);
+    const hijriMonthFirstDay = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(adjustedFirstDay);
+
+    const lastDay = new Date(year, month, daysInMonth);
+    const adjustedLastDay = new Date(lastDay);
+    adjustedLastDay.setDate(adjustedLastDay.getDate() + hijriAdjustment);
+    const hijriMonthLastDay = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(adjustedLastDay);
+
+    let hijriMonthText = hijriMonthFirstDay;
+    if (hijriMonthFirstDay !== hijriMonthLastDay) {
+        hijriMonthText += ` - ${hijriMonthLastDay}`;
+    }
+
+    scheduleTitle.innerHTML = `${fullMonths[month]} ${year} | ${hijriMonthText} | Daily Prayer Schedule`;
     document.querySelector('th.Date').innerHTML = months[month + 1];
 
     let tbodyHtml = "";
@@ -100,6 +115,8 @@ function createHTML() {
         adjustedDate.setDate(adjustedDate.getDate() + hijriAdjustment);
         const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'numeric' }).format(adjustedDate);
 
+        const dohaTime = new Date(prayerTimes.sunrise.getTime() + 30 * 60000);
+
         tbodyHtml += `
             <tr>
                 <td class="Date">${day} (${getDayToShow(month + 1, day)})</td>
@@ -107,6 +124,7 @@ function createHTML() {
                 <td class="Fajr">${formatTime(prayerTimes.fajr)}</td>
                 <td class="fIqama">${iqamaTimes.fIqama || ''}</td>
                 <td class="Sunrise">${formatTime(prayerTimes.sunrise)}</td>
+                <td class="Doha">${formatTime(dohaTime)}</td>
                 <td class="Zuhr">${formatTime(prayerTimes.dhuhr)}</td>
                 <td class="zIqama">${iqamaTimes.zIqama || ''}</td>
                 <td class="Asr">${formatTime(prayerTimes.asr)}</td>
