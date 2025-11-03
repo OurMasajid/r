@@ -113,7 +113,7 @@ function createHTML() {
 
         const adjustedDate = new Date(date);
         adjustedDate.setDate(adjustedDate.getDate() + hijriAdjustment);
-        const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'short' }).format(adjustedDate);
+        const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'numeric' }).format(adjustedDate);
 
         const dohaTime = new Date(prayerTimes.sunrise.getTime() + 30 * 60000);
 
