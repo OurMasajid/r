@@ -34,7 +34,8 @@ var monthsData = [];
 var tbodyString = "";
 const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const hijriMonths = ["Muharram", "Safar", "Rabi' al-Awwal", "Rabi' al-Thani", "Jumada al-Awwal", "Jumada al-Thani", "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"];
 
 
 document.getElementById("selectedMonth").value = selectedDate.getMonth() + 1;
@@ -65,12 +66,12 @@ function createHTML() {
     const firstDay = new Date(year, month, 1);
     const adjustedFirstDay = new Date(firstDay);
     adjustedFirstDay.setDate(adjustedFirstDay.getDate() + hijriAdjustment);
-    const hijriMonthFirstDay = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(adjustedFirstDay);
+    const hijriMonthFirstDay = hijriMonths[new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'numeric' }).format(adjustedFirstDay) - 1];
 
     const lastDay = new Date(year, month, daysInMonth);
     const adjustedLastDay = new Date(lastDay);
     adjustedLastDay.setDate(adjustedLastDay.getDate() + hijriAdjustment);
-    const hijriMonthLastDay = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(adjustedLastDay);
+    const hijriMonthLastDay = hijriMonths[new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'numeric' }).format(adjustedLastDay) - 1];
 
     let hijriMonthText = hijriMonthFirstDay;
     if (hijriMonthFirstDay !== hijriMonthLastDay) {
@@ -78,7 +79,6 @@ function createHTML() {
     }
 
     scheduleTitle.innerHTML = `${fullMonths[month]} ${year} | ${hijriMonthText} | Daily Prayer Schedule`;
-    document.querySelector('th.Date').innerHTML = months[month + 1];
 
     let tbodyHtml = "";
 
@@ -113,7 +113,7 @@ function createHTML() {
 
         const adjustedDate = new Date(date);
         adjustedDate.setDate(adjustedDate.getDate() + hijriAdjustment);
-        const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'numeric' }).format(adjustedDate);
+        const islamicDate = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric', month: 'short' }).format(adjustedDate);
 
         const dohaTime = new Date(prayerTimes.sunrise.getTime() + 30 * 60000);
 
