@@ -91,7 +91,7 @@ function createHTML() {
     // Set link for monthly schedule button
     const monthlyLink = document.getElementById('monthly-link');
     if (monthlyLink) {
-        monthlyLink.href = `monthly3.html?masjidKey=${tobedeleted.masjidKey}` + "&showHijri=true&hijriAdjustment=0";
+        monthlyLink.href = `monthly3.html?masjidKey=${tobedeleted.masjidKey}` + "&showHijri=false&hijriAdjustment=0";
     }
 }
 
